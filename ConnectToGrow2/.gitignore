@@ -1,0 +1,6 @@
+/target/
+/.settings/
+/Data/
+/.classpath
+/.project
+/.apt_generated/
