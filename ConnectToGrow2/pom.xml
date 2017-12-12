@@ -8,6 +8,14 @@
 	<name>ConnectToGrow</name>
 
 	<dependencies>
+		<!-- aAnnoDoc - annotation based documentation  -->
+		<dependency>
+			<groupId>org.openon.aannodoc</groupId>
+			<artifactId>aAnnoDocApi</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
+		<!-- SimpleUi - Simple Java UI -->
 		<dependency>
 			<groupId>org.openon.simpleui</groupId>
 			<artifactId>SimpleUI</artifactId>

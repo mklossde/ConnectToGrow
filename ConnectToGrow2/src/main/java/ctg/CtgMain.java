@@ -1,24 +1,20 @@
 package ctg;
 
-import java.awt.Component;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.annotation.WebServlet;
 
+import org.openon.simpleui.SimpleUIInterface;
 import org.openon.simpleui.SimpleUIServlet;
-import org.openon.simpleui.SimpleUIServlet.UIWriter;
 import org.openon.simpleui.components.UIComponent;
 import org.openon.simpleui.components.UIComponentInterface;
 import org.openon.simpleui.components.UIComponentWrapper;
-import org.openon.simpleui.theme.bootstrap.BootstrapUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ctg.bl.CtgBL;
-import ctg.db.StartupDO;
 
 /**
  * ConnectToGrow Main
@@ -41,15 +37,19 @@ public class CtgMain extends SimpleUIServlet {
 	
 	@UIPage(label="Wunsch AG",icon="gift",order=0) 
 	public void Dashboard(CtgUI ui) throws IOException {
-//		ui.sPage(true); // start a new Page
-//		ui.sCard(null);
-//		ui.h1(this.getClass().getSimpleName(), null);
-//		ui.eCard(null);
-//		ui.ePage().close(); // End of page and close
-		ui.writeFile("ui/dashboard.html", null);
-		
-		//?[component.head]
+		UIComponent comp=UIComponent.labelLink("Dashboard",	null,null);
+		comp.set("container", new Action(){
+			public void cmd(SimpleUIInterface ui) throws IOException {
+				cCards((CtgUI)ui);
+			}});
+		ui.writeFile("ui/cPage.html", comp);
 	}
+	
+	@UIPage(icon="envelope",order=4) 
+	public void Postbox(CtgUI ui) throws IOException {
+		ui.writeFile("ui/dashboard.html", null);
+	}
+	
 
 	@UIPage(icon="thumbs-o-up",order=1) 
 	public void Matches(CtgUI ui) throws IOException {
@@ -66,10 +66,7 @@ public class CtgMain extends SimpleUIServlet {
 		ui.writeFile("ui/dashboard.html", null);
 	}
 	
-	@UIPage(icon="envelope",order=4) 
-	public void Postbox(CtgUI ui) throws IOException {
-		ui.writeFile("ui/dashboard.html", null);
-	}
+
 	
 	//-----------------------------------------------------------------------------------------------------------
 	

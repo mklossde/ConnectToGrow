@@ -7,6 +7,7 @@ import java.io.Writer;
 import javax.servlet.ServletContext;
 
 import org.openon.simpleui.SimpleUIServlet;
+import org.openon.simpleui.SimpleUIServlet.Action;
 import org.openon.simpleui.SimpleUIServlet.SimpleUIRequest;
 import org.openon.simpleui.SimpleUIServlet.UIWriter;
 import org.openon.simpleui.components.UIComponent;
@@ -38,6 +39,11 @@ public class CtgUI extends BootstrapUI {
 	}
 	
 	//---------------------------------------------------------------------
+	
+	@UIWriter public void sPage() throws IOException { ui.writeFile("ui/sPage.html", null); }
+	@UIWriter public void ePage() throws IOException { ui.writeFile("ui/ePage.html", null); }
+	
+//	@UIWriter public void cPage() throws IOException { ui.writeFile("ui/cPage.html", null); }
 	
 	@UIWriter
 	public void cNavMenu() throws IOException { 

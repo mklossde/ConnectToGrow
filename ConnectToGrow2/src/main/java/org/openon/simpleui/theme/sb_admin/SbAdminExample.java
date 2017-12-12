@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 
 import org.openon.simpleui.SimpleUIServlet;
 import org.openon.simpleui.io.IOWriterJson;
-import org.openon.simpleui.utils.ResolvEl;
+import org.openon.simpleui.utils.UtilUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -125,7 +125,7 @@ public class SbAdminExample extends SimpleUIServlet {
 	@UIAction
 	public void doit(SimpleUIRequest req) throws IOException {
 		ExampleBean bean=new ExampleBean();
-		ResolvEl.toBean(req,bean);
+		UtilUI.toBean(req,bean);
 System.out.println("bean:"+bean);		
 	}
 	
