@@ -12,6 +12,7 @@ import org.openon.simpleui.SimpleUIServlet.UIAction;
 import org.openon.simpleui.components.UIComponent;
 import org.openon.simpleui.components.UIComponentInterface;
 import org.openon.simpleui.components.UIComponentWrapper;
+import org.openon.simpleui.utils.UtilUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,30 +70,28 @@ public class CtgMain extends SimpleUIServlet {
 	//------------------------------------------------------------
 	
 	@UIPage() 
-//	@UISecure(user={SECURE_LOGINUSER})
 	public void matches(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("login",	null,null);
 		ui.writeFile("ui/matches.html", comp);
 	}
 	
+	//------------------------------------------------------------
+	
 	@UIPage() 
-	public void profil(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("login",	null,null);
-		ui.writeFile("ui/cPage.html", comp);
+	public void register(CtgUI ui) throws IOException {
+//		UIComponent comp=UIComponent.labelLink("register",	null,null);
+		String name=ui.ui().request().getValueString("name", "my");
+		ui.ui().request().set("selected", name);
+		Object comp=bl().getRegister(name);
+		ui.writeFile("ui/register.html", comp);
 	}
 	
-	@UIPage() 
-	public void select(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("login",	null,null);
-		ui.writeFile("ui/cPage.html", comp);
-	}
-	
-
-	
-	@UIPage() 
-	public void setcard(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("login",	null,null);
-		ui.writeFile("ui/cPage.html", comp);
+	@UIAction
+	public void Speichern(CtgUI ui) throws IOException {
+		String name=ui.ui().request().get("selected");
+		Object comp=bl().getRegister(name);
+		UtilUI.toBean(ui.ui().request(), comp);
+		ui.ui().servlet().setPage(ui.ui().request(), "matches");
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
