@@ -48,8 +48,14 @@ public class CtgMain extends SimpleUIServlet {
 	
 	@UIAction(cmd="Get Started")
 	public void doLogin(CtgUI ui) throws IOException {
-System.out.println("login");
 		ui.ui().servlet().setPage(ui.ui().request(), "matches");		
+	}
+	
+	@UIPage() 
+	public void error(CtgUI ui) throws IOException {
+		String message=ui.ui().request().message();
+		UIComponent comp=UIComponent.labelLink(message,null,null);
+		ui.writeFile("ui/error.html", comp);
 	}
 	
 	//------------------------------------------------------------

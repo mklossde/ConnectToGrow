@@ -1,0 +1,38 @@
+Unique_Ident,Firma,,,v.a.Start-Up Y/N?,WZ_Code,WZ-Description,,,,,,Bereich,Firmensitz_Ort,PLZ,Umsatz,Unternehmensalter,Kontaktdaten_Firma,,,,Kontaktdaten_Firmenkundenberater,
+,,,,,,(Checkbox),,,,,,(Liste),(PLZ or Map),(PLZ or Map),(Ranges),(Ranges),,,,,,
+corporate_ID,company_name,,,company_tag,Berufsgruppenschlüssel GB,Berufsgruppenschlüssel Name GB,Per Datum Ertrag,Vertriebsertrag (YTD Actual),Vertriebsertrag (YTD Vorjahr),Bruttoertrag (YTD Actual),Bruttoertrag (YTD Vorjahr),Bereich,Firmensitz_Ort,Firmen_PLZ,Umsatzgroesse,Unternehmensalter,Anschrift_Firma,Tel_Firma,Email_Firma,Kontakt_Firma,Name_Firmenkundenberater,Email_FKB
+1,company_1,,,Start-Up,1771,"ERSCHLIESSUNG, KAUF UND VERKAUF VON EIGENEN GRUNDSTUECKEN",11/2016,0.00,0.00,0.00,0.00,sector_1,NiceTown1,10101,0-2 Mio.,0-1 years,Address_Co_1,Tel_company1,email_co_1,Contact_co_1,FKB1,FKB1@cb.com
+2,company_2,,,Start-Up,0906,KREDITINSTITUTE MIT SITZ IN DER BRD,11/2016,"3,134.67","4,000.19","3,340.44","4,223.19",sector_2,NiceTown2,10102,2-10 Mio.,3-5 years,Address_Co_2,Tel_company2,email_co_2,Contact_co_2,FKB2,FKB2@cb.com
+3,company_3,,,,1510,BAUGEWERBE,11/2016,0.00,0.00,0.00,0.00,sector_3,NiceTown3,10103,10-50 Mio. ,5-8 years,Address_Co_3,Tel_company3,email_co_3,Contact_co_3,FKB3,FKB3@cb.com
+4,company_4,,,ÖS-Zweckverband,0830,KOMMUNALE ZWECKVERBAENDE MIT HOHEITLICHEN AUFGABEN,,,,,,sector_4,NiceTown4,10104,über 50 Mio.,8-10 years,Address_Co_4,Tel_company4,email_co_4,Contact_co_4,FKB4,FKB4@cb.com
+5,company_5,,,Start-Up,0960,SONSTIGE AUSLAENDISCHE ZENTRALNOTENBANKEN,,,,,,sector_5,NiceTown5,10105,0-2 Mio.,0-1 years,Address_Co_5,Tel_company5,email_co_5,Contact_co_5,FKB5,FKB5@cb.com
+6,company_6,,,Start-Up,1523,GROSS UND EINZELHANDEL MIT KFZ TEILEN UND ZUBEHOER,,,,,,sector_6,NiceTown6,10106,2-10 Mio.,3-5 years,Address_Co_6,Tel_company6,email_co_6,Contact_co_6,FKB6,FKB6@cb.com
+7,company_7,,,,1541,GROSSHANDEL MIT NAHRUNGSMITTELN GETRAENKEN UND TABAKWAREN,,,,,,sector_7,NiceTown7,10107,10-50 Mio. ,5-8 years,Address_Co_7,Tel_company7,email_co_7,Contact_co_7,FKB7,FKB7@cb.com
+8,company_8,,,,5769,ERZIEHUNGS- JUGEND- FAMILIEN UND SONST. BERATUNGSSTELLEN,,,,,,sector_8,NiceTown8,10108,über 50 Mio.,8-10 years,Address_Co_8,Tel_company8,email_co_8,Contact_co_8,FKB8,FKB8@cb.com
+9,company_9,,,Start-Up,1735,UNTERNEHMENSBERATUNG,,,,,,sector_1,NiceTown9,10109,0-2 Mio.,0-1 years,Address_Co_9,Tel_company9,email_co_9,Contact_co_9,FKB9,FKB9@cb.com
+10,company_10,,,Start-Up,0820,GEMEINDEN UND GEMEINDEZWECKVERBAENDE,,,,,,sector_2,NiceTown10,10110,2-10 Mio.,3-5 years,Address_Co_10,Tel_company10,email_co_10,Contact_co_10,FKB10,FKB10@cb.com
+11,company_11,,,ÖS-Sonstige,1273,FERNWAERMEVERSORGUNG,,,,,,sector_3,NiceTown11,60601,10-50 Mio. ,5-8 years,Address_Co_11,Tel_company11,email_co_11,Contact_co_11,FKB1,FKB1@cb.com
+12,company_12,,,,,,,,,,,sector_4,NiceTown12,60602,über 50 Mio.,8-10 years,Address_Co_12,Tel_company12,email_co_12,Contact_co_12,FKB2,FKB2@cb.com
+13,company_13,,,,,,,,,,,sector_5,NiceTown13,60603,0-2 Mio.,0-1 years,Address_Co_13,Tel_company13,email_co_13,Contact_co_13,FKB3,FKB3@cb.com
+14,company_14,,,,,,,,,,,sector_6,NiceTown14,60604,2-10 Mio.,3-5 years,Address_Co_14,Tel_company14,email_co_14,Contact_co_14,FKB4,FKB4@cb.com
+15,company_15,,,,,,,,,,,sector_7,NiceTown15,60605,10-50 Mio. ,5-8 years,Address_Co_15,Tel_company15,email_co_15,Contact_co_15,FKB5,FKB5@cb.com
+16,company_16,,,,,,,,,,,sector_8,NiceTown16,60606,über 50 Mio.,8-10 years,Address_Co_16,Tel_company16,email_co_16,Contact_co_16,FKB6,FKB6@cb.com
+17,company_17,,,Start-Up,,,,,,,,sector_1,NiceTown17,60607,0-2 Mio.,0-1 years,Address_Co_17,Tel_company17,email_co_17,Contact_co_17,FKB7,FKB7@cb.com
+18,company_18,,,Start-Up,,,,,,,,sector_2,NiceTown18,60608,2-10 Mio.,3-5 years,Address_Co_18,Tel_company18,email_co_18,Contact_co_18,FKB8,FKB8@cb.com
+19,company_19,,,,,,,,,,,sector_3,NiceTown19,60609,10-50 Mio. ,5-8 years,Address_Co_19,Tel_company19,email_co_19,Contact_co_19,FKB9,FKB9@cb.com
+20,company_20,,,,,,,,,,,sector_4,NiceTown20,60610,über 50 Mio.,8-10 years,Address_Co_20,Tel_company20,email_co_20,Contact_co_20,FKB10,FKB10@cb.com
+21,company_21,,,,,,,,,,,sector_5,NiceTown21,80801,0-2 Mio.,0-1 years,Address_Co_21,Tel_company21,email_co_21,Contact_co_21,FKB1,FKB1@cb.com
+22,company_22,,,,,,,,,,,sector_6,NiceTown22,80802,2-10 Mio.,3-5 years,Address_Co_22,Tel_company22,email_co_22,Contact_co_22,FKB2,FKB2@cb.com
+23,company_23,,,,,,,,,,,sector_7,NiceTown23,80803,10-50 Mio. ,5-8 years,Address_Co_23,Tel_company23,email_co_23,Contact_co_23,FKB3,FKB3@cb.com
+24,company_24,,,,,,,,,,,sector_8,NiceTown24,80804,über 50 Mio.,8-10 years,Address_Co_24,Tel_company24,email_co_24,Contact_co_24,FKB4,FKB4@cb.com
+25,company_25,,,Start-Up,,,,,,,,sector_1,NiceTown25,80805,0-2 Mio.,0-1 years,Address_Co_25,Tel_company25,email_co_25,Contact_co_25,FKB5,FKB5@cb.com
+26,company_26,,,Start-Up,,,,,,,,sector_2,NiceTown26,80806,2-10 Mio.,3-5 years,Address_Co_26,Tel_company26,email_co_26,Contact_co_26,FKB6,FKB6@cb.com
+27,company_27,,,,,,,,,,,sector_3,NiceTown27,80807,10-50 Mio. ,5-8 years,Address_Co_27,Tel_company27,email_co_27,Contact_co_27,FKB7,FKB7@cb.com
+28,company_28,,,,,,,,,,,sector_4,NiceTown28,80808,über 50 Mio.,8-10 years,Address_Co_28,Tel_company28,email_co_28,Contact_co_28,FKB8,FKB8@cb.com
+29,company_29,,,Start-Up,,,,,,,,sector_5,NiceTown29,80809,0-2 Mio.,0-1 years,Address_Co_29,Tel_company29,email_co_29,Contact_co_29,FKB9,FKB9@cb.com
+30,company_30,,,Start-Up,,,,,,,,sector_6,NiceTown30,80810,2-10 Mio.,3-5 years,Address_Co_30,Tel_company30,email_co_30,Contact_co_30,FKB10,FKB10@cb.com
+31,company_31,,,,,,,,,,,sector_7,NiceTown31,80811,10-50 Mio. ,5-8 years,Address_Co_31,Tel_company31,email_co_31,Contact_co_31,FKB1,FKB1@cb.com
+32,company_32,,,,,,,,,,,sector_8,NiceTown32,80812,über 50 Mio.,8-10 years,Address_Co_32,Tel_company32,email_co_32,Contact_co_32,FKB2,FKB2@cb.com
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
