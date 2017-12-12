@@ -1,34 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.openon.ctg</groupId>
-	<artifactId>ConnectToGrow</artifactId>
+	<groupId>org.openon.simpleui</groupId>
+	<artifactId>SimpleUI</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
-	<name>ConnectToGrow</name>
-
-	  <repositories>
-	    <repository>
-	      <id>localRepro</id>
-          <url>file:${project.basedir}/src/lib</url>
-	    </repository>
-	  </repositories>
-  
+	<packaging>jar</packaging>
+	
 	<dependencies>
-		<!-- aAnnoDoc - annotation based documentation  -->
-		<dependency>
-			<groupId>org.openon.aannodoc</groupId>
-			<artifactId>aAnnoDocApi</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		
-		<!-- SimpleUi - Simple Java UI -->
-		<dependency>
-			<groupId>org.openon.simpleui</groupId>
-			<artifactId>SimpleUI</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

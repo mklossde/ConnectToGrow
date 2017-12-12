@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Dec 11 09:26:08 CET 2017
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1512980768573
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.openon.aannodoc\:aAnnoDocApi\:jar\:1.0.0 from/to central (https\://repo.maven.apache.org/maven2)\: repo.maven.apache.org

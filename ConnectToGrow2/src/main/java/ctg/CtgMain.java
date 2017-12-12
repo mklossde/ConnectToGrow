@@ -33,40 +33,38 @@ public class CtgMain extends SimpleUIServlet {
 	@Override public CtgUI instanceUI() { return CtgUI.instance(); }
 //	@Override public BootstrapUI instanceUI() { return BootstrapUI.instance(); }
 	
-	//-----------------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------------------
 	
-	@UIPage(label="Wunsch AG",icon="gift",order=0) 
-	public void Dashboard(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("Dashboard",	null,null);
-		comp.set("container", new Action(){
-			public void cmd(SimpleUIInterface ui) throws IOException {
-				cCards((CtgUI)ui);
-			}});
+	@UIPage(index=true) 
+	public void login(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("login.html", comp);
+	}
+	
+	@UIPage() 
+	public void profil(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
 		ui.writeFile("ui/cPage.html", comp);
 	}
 	
-	@UIPage(icon="envelope",order=4) 
-	public void Postbox(CtgUI ui) throws IOException {
-		ui.writeFile("ui/dashboard.html", null);
+	@UIPage() 
+	public void select(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("ui/cPage.html", comp);
 	}
 	
-
-	@UIPage(icon="thumbs-o-up",order=1) 
-	public void Matches(CtgUI ui) throws IOException {
-		ui.writeFile("ui/dashboard.html", null);
+	@UIPage() 
+	public void cards(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("ui/cPage.html", comp);
 	}
 	
-	@UIPage(icon="star",order=2) 
-	public void Favoriten(CtgUI ui) throws IOException {
-		ui.writeFile("ui/dashboard.html", null);
+	@UIPage() 
+	public void setcard(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("ui/cPage.html", comp);
 	}
 	
-	@UIPage(icon="search",order=3) 
-	public void Suche(CtgUI ui) throws IOException {
-		ui.writeFile("ui/dashboard.html", null);
-	}
-	
-
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
