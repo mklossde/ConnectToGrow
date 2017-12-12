@@ -30,18 +30,30 @@ h1 {
 	text-transform: uppercase;
 }
 
-input:not([type]):focus:not([readonly]) + label,
-input[type=text]:not(.browser-default):focus:not([readonly]) + label,
-input[type=password]:not(.browser-default):focus:not([readonly]) + label,
-input[type=email]:not(.browser-default):focus:not([readonly]) + label,
-input[type=url]:not(.browser-default):focus:not([readonly]) + label,
-input[type=time]:not(.browser-default):focus:not([readonly]) + label,
-input[type=date]:not(.browser-default):focus:not([readonly]) + label,
-input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
-input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
-input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
-input[type=number]:not(.browser-default):focus:not([readonly]) + label,
-input[type=search]:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #ff5252;
+.ctg-card-logo {
+	width: 3em;
+	height: 3em;
+}
+
+.ctg-brand-image {
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: block;
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.ctg-hero-image {
+	max-width: 100%;
+    position: absolute;
+}
+
+.ctg-details-card {
+	margin-top: 5%;
+}
+
+.ctg-details-card-taglist {
+	margin-top: 1em;
 }
