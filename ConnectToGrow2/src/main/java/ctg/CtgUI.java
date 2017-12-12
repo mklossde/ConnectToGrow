@@ -37,7 +37,9 @@ public class CtgUI extends BootstrapUI {
 	@Override public boolean haveResource(SimpleUIRequest uireq,String path) {
 		if(ui.haveResource(uireq, path)) { return true; }
 		else if(path.startsWith("/vendor/") || path.startsWith("/css/") || path.startsWith("/js/")) { return true; }
-		else if(path.startsWith("/images/") || path.startsWith("/fonts/")) { return true; }
+		else if(path.startsWith("/images/") || path.startsWith("/fonts/")
+				|| path.startsWith("/charts/")) { 
+			return true; }
 		else { return false; }
 	}
 	
@@ -45,7 +47,8 @@ public class CtgUI extends BootstrapUI {
 		InputStream in=ui.getResource(uireq, path); 
 		if(in!=null) { return in; }
 		if(path.startsWith("/vendor/") || path.startsWith("/css/") || path.startsWith("/js/")
-				|| path.startsWith("/images/") || path.startsWith("/fonts/")){ 
+				|| path.startsWith("/images/") || path.startsWith("/fonts/")
+				|| path.startsWith("/charts/")) { 
 			return SimpleUIServlet.getThreadResourceStream(uireq, path);
 		}else { return null; }
 	}

@@ -48,7 +48,15 @@ public class CtgMain extends SimpleUIServlet {
 	
 	@UIAction(cmd="Get Started")
 	public void doLogin(CtgUI ui) throws IOException {
-		ui.ui().servlet().setPage(ui.ui().request(), "matches");		
+		String user=ui.ui().request().getValueString("name", null);
+		String pas=ui.ui().request().getValueString("pas", null);
+		if(bl().login(user,pas)) {
+			ui.ui().request().setUserId(user);
+			ui.ui().servlet().setPage(ui.ui().request(), "matches");		
+		}else {
+			ui.ui().request().setUserId(null);
+			ui.ui().servlet().setPage(ui.ui().request(), "login");
+		}
 	}
 	
 	@UIPage() 
@@ -61,11 +69,11 @@ public class CtgMain extends SimpleUIServlet {
 	//------------------------------------------------------------
 	
 	@UIPage() 
+//	@UISecure(user={SECURE_LOGINUSER})
 	public void matches(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("login",	null,null);
 		ui.writeFile("ui/matches.html", comp);
 	}
-	
 	
 	@UIPage() 
 	public void profil(CtgUI ui) throws IOException {
@@ -89,23 +97,34 @@ public class CtgMain extends SimpleUIServlet {
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
-
-	
-	//-----------------------------------------------------------------------------------------------------------
-	
 	/** app cards **/ 
 	@UIWriter 
 	public void cCards(CtgUI ui) throws IOException {
-		ui.writeFile("ui/sCards.html", null);
 		List list=bl().getStartups();
+		
+		int count=-1;
+		ui.write("<div class=\"row\">");
 		for(int i=0;i<list.size();i++) {
-//			UIComponent comp=UIComponent.labelLink("Test "+i, null, null);
+			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
 			UIComponentInterface comp=new UIComponentWrapper(list.get(i));			
 			if(i==0) { comp.set("active", "active"); } // active first
 			ui.writeFile("ui/card.html", comp);
 		}
-		ui.writeFile("ui/eCards.html", null);
+		ui.write("</div>");
 	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	
+//	@UIPage() 
+//	public void test(CtgUI ui) throws IOException {
+//		UIComponent comp=UIComponent.labelLink("login",	null,null);
+//		ui.writeFile("ui/page.html", comp);
+//	}
+//	
+//	@UIWriter
+//	public void chart(CtgUI ui) throws IOException {
+//		
+//	}
 	
 	//-----------------------------------------------------------------------------------------------------------
 

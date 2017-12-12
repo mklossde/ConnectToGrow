@@ -26,7 +26,14 @@ public class CtgBL {
 //		System.out.println("end");
 //	}
 	
+	public boolean login(String user,String pas) {
+		return user!=null && user.length()>1;
+	}
+	
 	public List getStartups() throws IOException {
+//		List list=new ArrayList();
+//		for(int i=0;i<6;i++) { list.add(new FirmaDO()); }
+//		return list;
 		return readStammdaten();
 	}
 	
