@@ -14,5 +14,13 @@
 	    closeOnSelect: false // Close upon selecting a date,
 	  });
 
+    // progress bars
+	$(function() {
+		$('progress').each(function() {
+			var max = $(this).val();
+			$(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeOutCirc' });
+		});
+	});
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
