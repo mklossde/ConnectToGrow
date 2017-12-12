@@ -114,16 +114,22 @@ public class CtgMain extends SimpleUIServlet {
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
-//	@UIPage() 
-//	public void test(CtgUI ui) throws IOException {
-//		UIComponent comp=UIComponent.labelLink("login",	null,null);
-//		ui.writeFile("ui/page.html", comp);
-//	}
-//	
-//	@UIWriter
-//	public void chart(CtgUI ui) throws IOException {
-//		
-//	}
+	@UIPage() 
+	public void test(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("ui/page.html", comp);
+	}
+	
+	@UIWriter
+	public void cChart(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("Charts",	null,null);
+//		ui.writeFile("ui/chart.html", comp);
+		ChartsUI chart=new ChartsUI();
+		chart.setLabels(new String[]{"eins","zwei","drei"});
+		chart.setData(new Object[]{50, 10, 5, 2, 20, 30, 45});
+		chart.setLabel("myChart");
+		chart.write(ui.ui());
+	}
 	
 	//-----------------------------------------------------------------------------------------------------------
 
