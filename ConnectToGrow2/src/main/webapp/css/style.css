@@ -1,0 +1,47 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.comfortaa-300 {
+	font-family: 'Comfortaa', cursive;
+	font-weight: 300;
+}
+.comfortaa-400 {
+	font-family: 'Comfortaa', cursive;
+	font-weight: 400;
+}
+.comfortaa-700 {
+	font-family: 'Comfortaa', cursive;
+	font-weight: 700;
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #ff5252;
+}

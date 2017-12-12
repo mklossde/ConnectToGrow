@@ -27,15 +27,27 @@ public class CtgUI extends BootstrapUI {
 	
 	@Override public void onStartup(ServletContext ctx) throws IOException {
 		super.onStartup(ctx);
-		ui.addResourcesWeb(ctx,"/css").addResourcesWeb(ctx, "/img").addResourcesWeb(ctx, "/js").addResourcesWeb(ctx, "/fonts");
-		ui.addTopResource("/css/ctg.css");
-		ui.addTopResource("/css/card.css");
-		ui.addTopResource("/css/font-awesome.min.css");	
-		
-//		ui.addBottomResource("/js/jquery.js");
-//		ui.addBottomResource("/js/popper.min.js");
-//		ui.addBottomResource("/js/bootstrap.min.js");
-		ui.addBottomResource("/js/ie10-viewport-bug-workaround.js");
+//		ui.addResourcesWeb(ctx,"/css").addResourcesWeb(ctx, "/img").addResourcesWeb(ctx, "/js").addResourcesWeb(ctx, "/fonts");
+//		ui.addTopResource("/css/ctg.css");
+//		ui.addTopResource("/css/card.css");
+//		ui.addTopResource("/css/font-awesome.min.css");	
+//		ui.addBottomResource("/js/ie10-viewport-bug-workaround.js");
+	}
+	
+	@Override public boolean haveResource(SimpleUIRequest uireq,String path) {
+		if(ui.haveResource(uireq, path)) { return true; }
+		else if(path.startsWith("/vendor/") || path.startsWith("/css/") || path.startsWith("/js/")) { return true; }
+		else if(path.startsWith("/images/") || path.startsWith("/fonts/")) { return true; }
+		else { return false; }
+	}
+	
+	@Override public InputStream getResource(SimpleUIRequest uireq,String path) throws IOException { 
+		InputStream in=ui.getResource(uireq, path); 
+		if(in!=null) { return in; }
+		if(path.startsWith("/vendor/") || path.startsWith("/css/") || path.startsWith("/js/")
+				|| path.startsWith("/images/") || path.startsWith("/fonts/")){ 
+			return SimpleUIServlet.getThreadResourceStream(uireq, path);
+		}else { return null; }
 	}
 	
 	//---------------------------------------------------------------------

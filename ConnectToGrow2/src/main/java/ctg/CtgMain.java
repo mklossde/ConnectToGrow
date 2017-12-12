@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 
 import org.openon.simpleui.SimpleUIInterface;
 import org.openon.simpleui.SimpleUIServlet;
+import org.openon.simpleui.SimpleUIServlet.UIAction;
 import org.openon.simpleui.components.UIComponent;
 import org.openon.simpleui.components.UIComponentInterface;
 import org.openon.simpleui.components.UIComponentWrapper;
@@ -33,13 +34,32 @@ public class CtgMain extends SimpleUIServlet {
 	@Override public CtgUI instanceUI() { return CtgUI.instance(); }
 //	@Override public BootstrapUI instanceUI() { return BootstrapUI.instance(); }
 	
+/**
+ * TODO:
+ *		index=true => login page ??
+ */
 	//----------------------------------------------------------------------------------------
 	
-	@UIPage(index=true) 
+	@UIPage(index=true,order=0) 
 	public void login(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("login",	null,null);
-		ui.writeFile("login.html", comp);
+		ui.writeFile("ui/login.html", comp);
 	}
+	
+	@UIAction(cmd="Get Started")
+	public void doLogin(CtgUI ui) throws IOException {
+System.out.println("login");
+		ui.ui().servlet().setPage(ui.ui().request(), "matches");		
+	}
+	
+	//------------------------------------------------------------
+	
+	@UIPage() 
+	public void matches(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		ui.writeFile("ui/matches.html", comp);
+	}
+	
 	
 	@UIPage() 
 	public void profil(CtgUI ui) throws IOException {
@@ -53,11 +73,7 @@ public class CtgMain extends SimpleUIServlet {
 		ui.writeFile("ui/cPage.html", comp);
 	}
 	
-	@UIPage() 
-	public void cards(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("login",	null,null);
-		ui.writeFile("ui/cPage.html", comp);
-	}
+
 	
 	@UIPage() 
 	public void setcard(CtgUI ui) throws IOException {
@@ -65,6 +81,9 @@ public class CtgMain extends SimpleUIServlet {
 		ui.writeFile("ui/cPage.html", comp);
 	}
 	
+	//-----------------------------------------------------------------------------------------------------------
+	
+
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
