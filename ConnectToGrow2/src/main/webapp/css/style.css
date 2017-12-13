@@ -6,6 +6,8 @@
  * Made By MaterializeCSS.com
  */
 
+/* GLOBAL STUFF */
+
 .icon-block {
   padding: 0 15px;
 }
@@ -28,6 +30,39 @@
 
 h1 {
 	text-transform: uppercase;
+}
+
+.ctg-floating-bar {
+	position: fixed;
+	bottom: 3em;
+	left: 45%;
+}
+
+.ctg-floating-bar {
+	display: inline-block;
+    height: 60px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 60px;
+    padding: 0 30px;
+    border-radius: 30px;
+    background-color: #e4e4e4;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.ctg-floating-bar i{
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.ctg-floating-bar img{
+	float: left;
+    margin: 0 8px 0 -12px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }
 
 .ctg-card-logo {
@@ -106,5 +141,48 @@ progress::-moz-progress-bar {
 progress.ctg-progress-green::-webkit-progress-value {background-color: #81c784;}
 progress.ctg-progress-yellow::-webkit-progress-value {background-color: #ffd54f ;}
 progress.ctg-progress-red::-webkit-progress-value {background-color: #e57373;}
+
+/* LANDING PAGE STUFF */
+
+
+
+.ctg-use-case {
+	margin: 6em 0;
+	position: relative;
+}
+
+.image-container {
+	position: relative;
+}
+
+.ctg-use-case h4 {
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	width: 800px;
+    margin: 50px;
+}
+
+.ctg-use-case img {
+	max-width: 100%
+}
+
+.ctg-use-case .btn {
+	float: right;
+}
+
+/* LOGIN PAGE STUFF */
+
+/* REGISTER PAGE STUFF */
+
+/* MATCHES OVERVIEW STUFF */
+
+/* PROFILE CARD STUFF */
+
+/* LANDING PAGE STUFF */
+
+
+
+
 
 
