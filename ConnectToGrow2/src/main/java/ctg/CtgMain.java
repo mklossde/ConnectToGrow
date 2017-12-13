@@ -108,6 +108,13 @@ public class CtgMain extends SimpleUIServlet {
 			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
 			UIComponentInterface comp=new UIComponentWrapper(list.get(i));			
 			if(i==0) { comp.set("active", "active"); } // active first
+			
+			StringBuilder sb=new StringBuilder();
+			String tags[]=comp.get("tags").toString().split(",");
+			for (String tag : tags) { sb.append("<div class=\"chip\">"+tag+"</div>"); }
+			comp.set("tagdiv",sb.toString()); 
+			
+//			<div class="chip">Fintech</div>
 			ui.writeFile("ui/card.html", comp);
 		}
 		ui.write("</div>");
