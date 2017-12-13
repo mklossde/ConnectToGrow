@@ -16,6 +16,7 @@ import org.openon.simpleui.utils.UtilUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ctg.ChartjsUI.Type;
 import ctg.bl.CtgBL;
 
 /**
@@ -124,9 +125,13 @@ public class CtgMain extends SimpleUIServlet {
 	public void cChart(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("Charts",	null,null);
 //		ui.writeFile("ui/chart.html", comp);
-		ChartsUI chart=new ChartsUI();
+		ChartjsUI chart=new ChartjsUI();
 		chart.setLabels(new String[]{"eins","zwei","drei"});
-		chart.setData(new Object[]{50, 10, 5, 2, 20, 30, 45});
+		chart.setType(Type.doughnut);
+		chart.set(400, 400);
+		chart.setData(new Object[]{50, 10, 5});
+		chart.setBackgroundColors(new Object[]{"rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)"});
+		chart.setBorderColors(new Object[]{"black"});
 		chart.setLabel("myChart");
 		chart.write(ui.ui());
 	}
