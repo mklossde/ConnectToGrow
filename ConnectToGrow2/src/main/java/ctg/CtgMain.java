@@ -72,8 +72,17 @@ public class CtgMain extends SimpleUIServlet {
 	
 	@UIPage() 
 	public void matches(CtgUI ui) throws IOException {
-		UIComponent comp=UIComponent.labelLink("login",	null,null);
+		UIComponent comp=UIComponent.labelLink("matches",null,null);
 		ui.writeFile("ui/matches.html", comp);
+	}
+	
+	@UIPage() 
+	public void profile(CtgUI ui) throws IOException {
+		String name=ui.request().getValueString("name",null);
+		Object bean=bl().getMatch(ui.request(),name);
+//		UIComponentInterface comp=new UIComponentWrapper(bean);
+		UIComponentInterface comp=toComp(bean);
+		ui.writeFile("ui/profile-card.html", comp);
 	}
 	
 	//------------------------------------------------------------
@@ -106,18 +115,23 @@ public class CtgMain extends SimpleUIServlet {
 		ui.write("<div class=\"row\">");
 		for(int i=0;i<list.size();i++) {
 			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
-			UIComponentInterface comp=new UIComponentWrapper(list.get(i));			
-			if(i==0) { comp.set("active", "active"); } // active first
-			
-			StringBuilder sb=new StringBuilder();
-			String tags[]=comp.get("tags").toString().split(",");
-			for (String tag : tags) { sb.append("<div class=\"chip\">"+tag+"</div>"); }
-			comp.set("tagdiv",sb.toString()); 
+			UIComponentInterface comp=toComp(list.get(i));
 			
 //			<div class="chip">Fintech</div>
 			ui.writeFile("ui/card.html", comp);
 		}
 		ui.write("</div>");
+	}
+	
+	public UIComponentInterface toComp(Object bean) {
+		UIComponentInterface comp=new UIComponentWrapper(bean);			
+//		if(i==0) { comp.set("active", "active"); } // active first
+		
+		StringBuilder sb=new StringBuilder();
+		String tags[]=comp.get("tags").toString().split(",");
+		for (String tag : tags) { sb.append("<div class=\"chip\">"+tag+"</div>"); }
+		comp.set("tagdiv",sb.toString()); 
+		return comp;
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------

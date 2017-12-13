@@ -35,9 +35,15 @@ public class CtgBL {
 		return find(getRegisters(req),"Firmenname",name);
 	}
 	
+	public Object getMatch(SimpleUIRequest req,String name) throws IOException {
+		return find(getMatches(req),"name",name);
+	}
+	
+	
 //	public List getStartups() throws IOException {
 //		return readStammdaten();
 //	}
+	
 	
 	//---------------------------------------------------------------------------
 	
@@ -77,11 +83,11 @@ public class CtgBL {
 		BufferedReader reader=new BufferedReader(new InputStreamReader(in));
 		
 		String headLine = reader.readLine();
-		String keys[]=headLine.split(tr);
+		String keys[]=headLine.trim().split(tr);
 				
 		while(reader.ready()) {
 		     String csvLine = reader.readLine();
-		     String values[]=csvLine.split(tr);
+		     String values[]=csvLine.trim().split(tr);
 		     Map map=new HashMap();
 		     for(int i=0;i<keys.length && i<values.length;i++) {
 		    	 map.put(keys[i], values[i]);
