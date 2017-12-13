@@ -83,14 +83,14 @@ public class CtgMain extends SimpleUIServlet {
 //		UIComponent comp=UIComponent.labelLink("register",	null,null);
 		String name=ui.ui().request().getValueString("name", "my");
 		ui.ui().request().set("selected", name);
-		Object comp=bl().getRegister(name);
+		Object comp=bl().getRegister(ui.request(),name);
 		ui.writeFile("ui/register.html", comp);
 	}
 	
 	@UIAction
 	public void Speichern(CtgUI ui) throws IOException {
 		String name=ui.ui().request().get("selected");
-		Object comp=bl().getRegister(name);
+		Object comp=bl().getRegister(ui.request(),name);
 		UtilUI.toBean(ui.ui().request(), comp);
 		ui.ui().servlet().setPage(ui.ui().request(), "matches");
 	}
@@ -100,7 +100,7 @@ public class CtgMain extends SimpleUIServlet {
 	/** app cards **/ 
 	@UIWriter 
 	public void cCards(CtgUI ui) throws IOException {
-		List list=bl().getStartups();
+		List list=bl().getMatches(ui.ui().request());
 		
 		int count=-1;
 		ui.write("<div class=\"row\">");

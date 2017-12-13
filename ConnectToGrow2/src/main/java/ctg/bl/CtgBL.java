@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openon.simpleui.SimpleUIServlet;
+import org.openon.simpleui.SimpleUIServlet.SimpleUIRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +20,10 @@ public class CtgBL {
 	private static final Logger LOG=LoggerFactory.getLogger(CtgBL.class);
 	
 	public static final String STAMMDATEN="Stammdaten.csv";
-	public static final String REGISTER="Register.csv";
+	public static final String REGISTER="/data/Register.csv";
+	public static final String MATCHES="/data/Matches.csv";
 	
+	public List<Map> matches;
 	public List<Map> registers;
 	public List stammdaten;
 	
@@ -28,39 +31,48 @@ public class CtgBL {
 		return user!=null && user.length()>1;
 	}
 	
-	public Object getRegister(String name) throws IOException {
-		return find(getRegisters(),"Firmenname",name);
+	public Object getRegister(SimpleUIRequest req,String name) throws IOException {
+		return find(getRegisters(req),"Firmenname",name);
 	}
 	
-	public List getStartups() throws IOException {
-		return readStammdaten();
-	}
+//	public List getStartups() throws IOException {
+//		return readStammdaten();
+//	}
 	
-	public List<Map> getRegisters() throws IOException {
-		if(registers==null) { registers=read(REGISTER,";"); }
+	//---------------------------------------------------------------------------
+	
+	
+	public List<Map> getRegisters(SimpleUIRequest req) throws IOException {
+		if(registers==null) { registers=read(req,REGISTER,";"); }
 		return registers;
+	}
+	
+	public List<Map> getMatches(SimpleUIRequest req) throws IOException {
+		if(matches==null) { matches=read(req,MATCHES,";"); }
+		return matches;
 	}
 	
 	//---------------------------------------------------------------------------
 		
-	public List readStammdaten() throws IOException {
-		if(stammdaten!=null) { return stammdaten; }
-		stammdaten=new ArrayList();
-		InputStream in=SimpleUIServlet.getClassResourceStream(this, STAMMDATEN);
-		if(in==null) { throw new IOException("cant read "+STAMMDATEN); }
-		BufferedReader reader=new BufferedReader(new InputStreamReader(in));
-		while(reader.ready()) {
-		     String csvLine = reader.readLine();
-		     FirmaDO f=FirmaDO.read(csvLine);
-		     if(f!=null) { stammdaten.add(f); LOG.debug("read "+f);}
-		}
-		reader.close();
-		return stammdaten;
-	}
+//	public List readStammdaten() throws IOException {
+//		if(stammdaten!=null) { return stammdaten; }
+//		stammdaten=new ArrayList();
+//		InputStream in=SimpleUIServlet.getClassResourceStream(this, STAMMDATEN);
+//		if(in==null) { throw new IOException("cant read "+STAMMDATEN); }
+//		BufferedReader reader=new BufferedReader(new InputStreamReader(in));
+//		while(reader.ready()) {
+//		     String csvLine = reader.readLine();
+//		     FirmaDO f=FirmaDO.read(csvLine);
+//		     if(f!=null) { stammdaten.add(f); LOG.debug("read "+f);}
+//		}
+//		reader.close();
+//		return stammdaten;
+//	}
 	
-	public List<Map> read(String dbName,String tr) throws IOException {
+	public List<Map> read(SimpleUIRequest req,String dbName,String tr) throws IOException {
 		List<Map> list=new ArrayList<Map>();
-		InputStream in=SimpleUIServlet.getClassResourceStream(this, dbName);
+//		InputStream in=SimpleUIServlet.getClassResourceStream(this, dbName);
+		InputStream in=SimpleUIServlet.getThreadResourceStream(req, dbName);
 		if(in==null) { throw new IOException("cant read "+dbName); }
 		BufferedReader reader=new BufferedReader(new InputStreamReader(in));
 		
