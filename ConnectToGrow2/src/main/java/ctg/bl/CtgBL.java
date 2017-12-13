@@ -24,11 +24,15 @@ public class CtgBL {
 	public static final String MATCHES="/data/Matches.csv";
 	public static final String KOOPERATIONEN="/data/Kooperationen.csv";
 	
+	public List<Map> registers;
+	
+	public List<Map> usecases;
+	public List<String> likeList=new ArrayList<String>();
 	
 	public List<Map> matches;
-	public List<Map> registers;
-	public List<Map> usecases;
-	public List stammdaten;
+	public List<String> matchList=new ArrayList<String>();
+	
+//	public List stammdaten;
 	
 	public boolean login(String user,String pas) {
 		return user!=null && user.length()>1;
@@ -42,12 +46,18 @@ public class CtgBL {
 		return find(getMatches(req),"name",name);
 	}
 	
+	public List<String> getMatch() { return matchList; }
+	public void addMatch(String match) { if(!isMatch(match)) { this.matchList.add(match); } else { remove(matchList,match); }}
+	public boolean isMatch(String match) {  return contains(matchList,match); }
 	
-//	public List getStartups() throws IOException {
-//		return readStammdaten();
-//	}
-	
-	
+	public List<String> getLikes() { return likeList; }
+	public void addLike(String like) { 
+		if(!isLike(like)) { 
+			this.likeList.add(like); 
+		} else { 
+			remove(likeList,like); }}
+	public boolean isLike(String like) { return contains(likeList,like); }
+
 	//---------------------------------------------------------------------------
 	
 	
@@ -115,4 +125,19 @@ public class CtgBL {
 		return null;
 	}
 	
+	protected boolean contains(List<String> list,String name) {
+		if(name==null) { return false; }
+		for(int i=0;list!=null && i<list.size();i++) {
+			if(name.equalsIgnoreCase(list.get(i))) { return true; }
+		}
+		return false;
+	}
+	
+	protected boolean remove(List<String> list,String name) {
+		if(name==null) { return false; }
+		for(int i=0;list!=null && i<list.size();i++) {
+			if(name.equalsIgnoreCase(list.get(i))) { list.remove(i); return true; }
+		}
+		return false;
+	}
 }

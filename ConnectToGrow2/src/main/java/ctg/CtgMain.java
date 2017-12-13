@@ -12,11 +12,12 @@ import org.openon.simpleui.SimpleUIServlet.UIAction;
 import org.openon.simpleui.components.UIComponent;
 import org.openon.simpleui.components.UIComponentInterface;
 import org.openon.simpleui.components.UIComponentWrapper;
+import org.openon.simpleui.plugin.cahrtjs.ChartJsUI;
+import org.openon.simpleui.plugin.cahrtjs.ChartJsUI.Type;
 import org.openon.simpleui.utils.UtilUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ctg.ChartjsUI.Type;
 import ctg.bl.CtgBL;
 
 /**
@@ -76,14 +77,62 @@ public class CtgMain extends SimpleUIServlet {
 		ui.writeFile("ui/landing-page.html", comp);
 	}
 	
+	@UIWriter
+	public void useCards(CtgUI ui) throws IOException {
+		List list=bl().getUsecases(ui.request());
+		for(int i=0;i<list.size();i++) {
+			UIComponentInterface comp=toComp(list.get(i));
+			if(bl().isLike((String)comp.get("name"))) {comp.set("like", "like"); }else { comp.set("like", ""); }
+			ui.writeFile("ui/landingCard.html", comp);
+		}
+	}
+	
+	@UIPage(label="likes") 
+	public void likePage(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("like",null,null);
+		ui.writeFile("ui/like-page.html", comp);
+	}
+	
+	@UIWriter
+	public void likeCards(CtgUI ui) throws IOException {
+		List list=bl().getUsecases(ui.request());
+		for(int i=0;i<list.size();i++) {
+			UIComponentInterface comp=toComp(list.get(i));
+			if(bl().isLike((String)comp.get("name"))) {
+				comp.set("like", "like"); 
+				ui.writeFile("ui/landingCard.html", comp);
+			}else {
+				comp.set("like", ""); 
+			}
+		}
+	}
+	
+	@UIAction()
+	public void like(CtgUI ui) throws IOException {
+		bl().addLike(ui.request().getValueString("like",null));
+	}
+	
 	
 	//------------------------------------------------------------
+	// matches
 	
 	@UIPage() 
 	public void matches(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("matches",null,null);
 		ui.writeFile("ui/matches.html", comp);
 	}
+	
+	@UIPage() 
+	public void matchesFound(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("matchesFound",null,null);
+		ui.writeFile("ui/matchesFound.html", comp);
+	}
+	
+	@UIAction
+	public void match(CtgUI ui) throws IOException {
+		bl().addMatch(ui.request().getValueString("match",null));
+	}
+	
 	
 	@UIPage() 
 	public void profile(CtgUI ui) throws IOException {
@@ -94,7 +143,51 @@ public class CtgMain extends SimpleUIServlet {
 		ui.writeFile("ui/profile-card.html", comp);
 	}
 	
+	/** app cards **/ 
+	@UIWriter 
+	public void cCards(CtgUI ui) throws IOException {
+		List list=bl().getMatches(ui.ui().request());
+		
+		int count=-1;
+		ui.write("<div class=\"row\">");
+		for(int i=0;i<list.size();i++) {
+			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
+			UIComponentInterface comp=toComp(list.get(i));
+			
+			if(bl().isMatch((String)comp.get("name"))) {
+				comp.set("match", "match"); 
+			}else { comp.set("match", ""); }
+			
+//			<div class="chip">Fintech</div>
+			ui.writeFile("ui/card.html", comp);
+		}
+		ui.write("</div>");
+	}
+	
+	/** app cards **/ 
+	@UIWriter 
+	public void matchCards(CtgUI ui) throws IOException {
+		List list=bl().getMatches(ui.ui().request());
+		
+		int count=-1;
+		ui.write("<div class=\"row\">");
+		for(int i=0;i<list.size();i++) {
+			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
+			UIComponentInterface comp=toComp(list.get(i));
+			
+			if(bl().isMatch((String)comp.get("name"))) {
+				comp.set("match", "match"); 
+				ui.writeFile("ui/card.html", comp);
+			}else { comp.set("match", ""); }
+			
+		}
+		ui.write("</div>");
+	}
+	
+	
+	
 	//------------------------------------------------------------
+	// register
 	
 	@UIPage() 
 	public void register(CtgUI ui) throws IOException {
@@ -109,38 +202,16 @@ public class CtgMain extends SimpleUIServlet {
 	public void Speichern(CtgUI ui) throws IOException {
 		String name=ui.ui().request().get("selected");
 		Object comp=bl().getRegister(ui.request(),name);
-		UtilUI.toBean(ui.ui().request(), comp);
-		ui.ui().servlet().setPage(ui.ui().request(), "landing");
+		if(comp!=null) { UtilUI.toBean(ui.request(), comp); }
+		ui.ui().servlet().setPage(ui.request(), "landing");
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
 	
-	@UIWriter
-	public void useCards(CtgUI ui) throws IOException {
-		List list=bl().getUsecases(ui.request());
-		for(int i=0;i<list.size();i++) {
-			UIComponentInterface comp=toComp(list.get(i));
-			ui.writeFile("ui/landingCard.html", comp);
-		}
-	}
+
 	
-	/** app cards **/ 
-	@UIWriter 
-	public void cCards(CtgUI ui) throws IOException {
-		List list=bl().getMatches(ui.ui().request());
-		
-		int count=-1;
-		ui.write("<div class=\"row\">");
-		for(int i=0;i<list.size();i++) {
-			if(++count>2){ count=0; ui.write("</div><div class=\"row\">"); }
-			UIComponentInterface comp=toComp(list.get(i));
-			
-//			<div class="chip">Fintech</div>
-			ui.writeFile("ui/card.html", comp);
-		}
-		ui.write("</div>");
-	}
+
 	
 	public UIComponentInterface toComp(Object bean) {
 		UIComponentInterface comp=new UIComponentWrapper(bean);			
@@ -168,7 +239,7 @@ public class CtgMain extends SimpleUIServlet {
 	public void cChart(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("Charts",	null,null);
 //		ui.writeFile("ui/chart.html", comp);
-		ChartjsUI chart=new ChartjsUI();
+		ChartJsUI chart=new ChartJsUI();
 		chart.setLabels(new String[]{"eins","zwei","drei"});
 		chart.setType(Type.doughnut);
 		chart.set(400, 400);
