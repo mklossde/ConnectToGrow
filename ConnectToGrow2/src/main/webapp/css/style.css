@@ -8,6 +8,15 @@
 
 /* GLOBAL STUFF */
 
+body {
+	color: #333;
+}
+
+nav ul a,
+nav .brand-logo {
+	color: #333;
+}
+
 .icon-block {
   padding: 0 15px;
 }
@@ -50,6 +59,11 @@ h1 {
     background-color: #e4e4e4;
     margin-bottom: 5px;
     margin-right: 5px;
+    z-index: 50000;
+}
+
+.ctg-floating-bar a {
+	color: #333;
 }
 
 .ctg-floating-bar i{
@@ -73,7 +87,6 @@ h1 {
 .ctg-brand-image {
 	margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
     margin-bottom: 2em;
     display: block;
 	max-width: 200px;
@@ -142,6 +155,11 @@ progress.ctg-progress-green::-webkit-progress-value {background-color: #81c784;}
 progress.ctg-progress-yellow::-webkit-progress-value {background-color: #ffd54f ;}
 progress.ctg-progress-red::-webkit-progress-value {background-color: #e57373;}
 
+progress.ctg-progress-green-90::-webkit-progress-value {background-color: #4db6ac;}
+progress.ctg-progress-green-70::-webkit-progress-value {background-color: #80cbc4;}
+progress.ctg-progress-green-50::-webkit-progress-value {background-color: #b2dfdb;}
+
+
 /* LANDING PAGE STUFF */
 
 
@@ -178,6 +196,21 @@ progress.ctg-progress-red::-webkit-progress-value {background-color: #e57373;}
 /* MATCHES OVERVIEW STUFF */
 
 /* PROFILE CARD STUFF */
+
+.ctg-charts-container span {
+	font-size: large;
+}
+
+.ctg-charts-container span i{
+	vertical-align: text-bottom;
+	font-size: 1.2em;
+}
+
+.ctg-like {}
+.ctg-dislike {}
+.ctg-contact {
+	float: right;
+}
 
 /* LANDING PAGE STUFF */
 

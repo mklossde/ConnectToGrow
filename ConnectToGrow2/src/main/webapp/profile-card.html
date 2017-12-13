@@ -12,18 +12,31 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body id="profile-page">
-  <nav class="orange accent-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><span class="comfortaa-300">Connect</span><span class="comfortaa-400">2</span><span class="comfortaa-700">Grow</span></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+ 
+  <div class="navbar-fixed">
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="matches.html">Start-ups</a></li>
+      <li><a href="landing-page.html">Erfolgsstories</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Profil</a></li>
+      <li><a href="#!">Likes</a></li>
+      <li><a href="#!">Matches</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Kontakt</a></li>
+    </ul>
+
+    <nav class="white">
+      <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo"><i class="material-icons">thumbs_up_down</i><span class="comfortaa-300">Connect</span><span class="comfortaa-700">2</span><span class="comfortaa-300">Grow</span></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="waves-effect waves-light btn">Kontakt <i class="material-icons right">send</i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menü<i class="material-icons right">more_vert</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    
+  </div>
 
   <img class="activator ctg-hero-image" src="images/3dprint.jpg">
 
@@ -39,12 +52,14 @@
             <div class="card-content">
             <div class="row">
               <div class="col s12">
-                <img class="responsive-img circle ctg-brand-image" src="images/startup-logo.png">
               </div>
               </div>
 
               <div class="row">
               <div class="col s12 m4">
+
+                <img class="responsive-img circle ctg-brand-image" src="images/startup-logo.png">
+
                 <ul class="collection">
                   <li class="collection-item avatar">
                     <img src="images/stock-5-square.jpg" alt="" class="circle">
@@ -70,25 +85,43 @@
                     <p>AI</p>
                     <a href="#!" class="secondary-content"><i class="material-icons red-text text-accent-2">grade</i></a>
                   </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle">send</i>
+                    <span class="title">Kontakt</span>
+                  </li>
                 </ul>
+
+                <div class="ctg-details-card-taglist">
+                  <div class="chip">Fintech</div><div class="chip">AI</div><div class="chip">3d Printing</div><div class="chip">Lorem</div><div class="chip">Ipsum</div>
+                </div>
+
               </div>
 
               <div class="col s12 m8">
                   <span>Startin.Io</span>
                   <h5>What we are doing.</h5>
-                  <p>Lorem ipsum dolor amet edison bulb gluten-free hella normcore bitters. Raw denim viral dreamcatcher distillery 90's thundercats quinoa PBR&B ugh letterpress microdosing locavore shoreditch meh normcore. Slow-carb 8-bit intelligentsia cliche schlitz green juice. Blue bottle shaman tbh literally, tilde chambray authentic scenester crucifix tousled unicorn plaid. You probably haven't heard of them shabby chic occupy, humblebrag poke hoodie selvage ugh actually marfa shoreditch artisan vinyl af cloud bread. Tilde mlkshk irony, thundercats skateboard brunch humblebrag 8-bit chambray copper mug cray pork belly food truck yr yuccie.</p>
-                  <div class="ctg-details-card-taglist">
-                    Tags: <div class="chip">Fintech</div><div class="chip">AI</div><div class="chip">3d Printing</div><div class="chip">Lorem</div><div class="chip">Ipsum</div>
-                  </div>
+                  <p>Lorem ipsum dolor amet edison bulb gluten-free hella normcore bitters. Raw denim viral dreamcatcher distillery 90's thundercats quinoa PBR&B ugh letterpress microdosing locavore shoreditch meh normcore. Slow-carb 8-bit intelligentsia cliche schlitz green juice. Blue bottle shaman tbh literally, tilde chambray authentic scenester crucifix tousled unicorn plaid.</p>
                   <br>
 
                   <!-- CHARTS -->
                   <div class="ctg-charts-container">
                     <section id="skills">
-                      <span>Technologie Trend</span><progress class="z-depth-1 ctg-progress-green" value="80" max="100"></progress>
-                      <span>Tech Trend</span><progress class="z-depth-1 ctg-progress-green" value="100" max="100"></progress>
-                      <span>Best Practices</span><progress class="z-depth-1 ctg-progress-green" value="90" max="100"></progress>
+                      <span>Technologie Trend <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-70" value="80" max="100"></progress>
+                      <span>Lokalität <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-50" value="60" max="100"></progress>
+                      <span>Bereich der Lösung <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-90" value="100" max="100"></progress>
+                      <span>Best Practices <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-90" value="90" max="100"></progress>
+                      <span>Branche <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-90" value="100" max="100"></progress>
+                      <span>Matching Format <i class="material-icons">help_outline</i></span><progress class="z-depth-1 ctg-progress-green-90" value="100" max="100"></progress>
                     </section>
+                  </div>
+
+                  <br>
+                  <br>
+                  <br>
+
+                  <div class="ctg-buttons-container">
+                    <a class="btn-floating btn-large waves-effect waves-light red ctg-like"><i class="material-icons">thumb_up</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light green ctg-dislike"><i class="material-icons">thumb_down</i></a>
                   </div>
               </div>
 
@@ -104,6 +137,12 @@
     <br><br>
   </div>
 
+  <!-- Floating Bar -->
+  <div class="chip ctg-floating-bar z-depth-2">
+    <a href="matches.html">Start-ups anschauen <i class="material-icons">people</i></a>
+  </div>
+
+  <!--
   <footer class="page-footer">
     <div class="container">
       <div class="row">
@@ -139,7 +178,7 @@
       </div>
     </div>
   </footer>
-
+  -->
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
