@@ -22,9 +22,12 @@ public class CtgBL {
 	public static final String STAMMDATEN="Stammdaten.csv";
 	public static final String REGISTER="/data/Register.csv";
 	public static final String MATCHES="/data/Matches.csv";
+	public static final String KOOPERATIONEN="/data/Kooperationen.csv";
+	
 	
 	public List<Map> matches;
 	public List<Map> registers;
+	public List<Map> usecases;
 	public List stammdaten;
 	
 	public boolean login(String user,String pas) {
@@ -56,6 +59,11 @@ public class CtgBL {
 	public List<Map> getMatches(SimpleUIRequest req) throws IOException {
 		if(matches==null) { matches=read(req,MATCHES,";"); }
 		return matches;
+	}
+	
+	public List<Map> getUsecases(SimpleUIRequest req) throws IOException {
+		if(usecases==null) { usecases=read(req,KOOPERATIONEN,";"); }
+		return usecases;
 	}
 	
 	//---------------------------------------------------------------------------

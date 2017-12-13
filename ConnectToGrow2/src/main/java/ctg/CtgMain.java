@@ -71,6 +71,15 @@ public class CtgMain extends SimpleUIServlet {
 	//------------------------------------------------------------
 	
 	@UIPage() 
+	public void landing(CtgUI ui) throws IOException {
+		UIComponent comp=UIComponent.labelLink("landing",null,null);
+		ui.writeFile("ui/landing-page.html", comp);
+	}
+	
+	
+	//------------------------------------------------------------
+	
+	@UIPage() 
 	public void matches(CtgUI ui) throws IOException {
 		UIComponent comp=UIComponent.labelLink("matches",null,null);
 		ui.writeFile("ui/matches.html", comp);
@@ -101,10 +110,20 @@ public class CtgMain extends SimpleUIServlet {
 		String name=ui.ui().request().get("selected");
 		Object comp=bl().getRegister(ui.request(),name);
 		UtilUI.toBean(ui.ui().request(), comp);
-		ui.ui().servlet().setPage(ui.ui().request(), "matches");
+		ui.ui().servlet().setPage(ui.ui().request(), "landing");
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
+	
+	
+	@UIWriter
+	public void useCards(CtgUI ui) throws IOException {
+		List list=bl().getUsecases(ui.request());
+		for(int i=0;i<list.size();i++) {
+			UIComponentInterface comp=toComp(list.get(i));
+			ui.writeFile("ui/landingCard.html", comp);
+		}
+	}
 	
 	/** app cards **/ 
 	@UIWriter 
@@ -128,9 +147,12 @@ public class CtgMain extends SimpleUIServlet {
 //		if(i==0) { comp.set("active", "active"); } // active first
 		
 		StringBuilder sb=new StringBuilder();
-		String tags[]=comp.get("tags").toString().split(",");
-		for (String tag : tags) { sb.append("<div class=\"chip\">"+tag+"</div>"); }
-		comp.set("tagdiv",sb.toString()); 
+		String tagsString=(String)comp.get("tags");
+		if(tagsString!=null) {
+			String tags[]=tagsString.toString().split(",");
+			for (String tag : tags) { sb.append("<div class=\"chip\">"+tag+"</div>"); }
+			comp.set("tagdiv",sb.toString());
+		}
 		return comp;
 	}
 	
