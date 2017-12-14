@@ -6,10 +6,16 @@
  * Made By MaterializeCSS.com
  */
 
-/* GLOBAL STUFF */
+/* GLOBAL STUFF (overwriting materialize defaults) */
+
+
 
 body {
 	color: #333;
+}
+
+a {
+	color: #555;
 }
 
 nav ul a,
@@ -22,6 +28,10 @@ nav .brand-logo {
 }
 .icon-block .material-icons {
 	font-size: inherit;
+}
+
+.collection .collection-item.avatar {
+	min-height: 60px;
 }
 
 .comfortaa-300 {
@@ -44,26 +54,26 @@ h1 {
 .ctg-floating-bar {
 	position: fixed;
 	bottom: 3em;
-	left: 45%;
+	right: 3em;
 }
 
 .ctg-floating-bar {
 	display: inline-block;
     height: 60px;
-    font-size: 13px;
+    font-size: 24px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.6);
     line-height: 60px;
     padding: 0 30px;
     border-radius: 30px;
-    background-color: #e4e4e4;
+    background-color: #4db6ac;
     margin-bottom: 5px;
     margin-right: 5px;
     z-index: 50000;
 }
 
 .ctg-floating-bar a {
-	color: #333;
+	color: #fff;
 }
 
 .ctg-floating-bar i{
@@ -94,7 +104,7 @@ h1 {
 }
 
 .ctg-hero-image {
-	max-width: 100%;
+	max-width: 200%;
     position: absolute;
 }
 
@@ -165,12 +175,13 @@ progress.ctg-progress-green-50::-webkit-progress-value {background-color: #b2dfd
 
 
 .ctg-use-case {
-	margin: 6em 0;
+	margin-bottom: 6em;
 	position: relative;
-}
-
-.image-container {
-	position: relative;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6em;
+    border-top: 1px solid #ccc;
 }
 
 .ctg-use-case h4 {
@@ -182,14 +193,63 @@ progress.ctg-progress-green-50::-webkit-progress-value {background-color: #b2dfd
 }
 
 .ctg-use-case img {
-	max-width: 100%
+	max-width: 100%;
+	width: 200px;
+	height: 200px;
 }
 
-.ctg-use-case .btn {
-	float: right;
+.ctg-use-case .ctg-use-case-teaser {
+	text-align: justify;
+}
+
+.ctg-use-case .ctg-use-case-show-full-article.open {
+}
+
+
+.ctg-article-content {
+	display: none;	
+}
+
+.ctg-image-container {
+	position: relative;
+}
+
+.ctg-article-like {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #b2dfdb;
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: -25px;
+}
+
+.ctg-article-like i {
+	line-height: 60px;
+    margin: 0 11px;
+    font-size: 2.5em;
+    color: #fff;
 }
 
 /* LOGIN PAGE STUFF */
+
+#login-page {
+	background-image: url(../images/fk_portal.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#start-app {
+	margin-top: 250px;
+	width: 100px;
+	height: 100px;
+}
+
+#start-app i {
+	line-height: 100px;
+	font-size: 3.6rem;
+}
 
 /* REGISTER PAGE STUFF */
 
@@ -212,10 +272,39 @@ progress.ctg-progress-green-50::-webkit-progress-value {background-color: #b2dfd
 	float: right;
 }
 
+.ctg-buttons-container {
+	display: flex;
+	justify-content: center;
+}
+
+.ctg-buttons-container a {
+	margin-right: 2em;
+}
+
+.ctg-match-like {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #b2dfdb;
+    display: none;
+    position: absolute;
+ 	top: -30px;
+    left: 46%;
+}
+
+.ctg-match-like i {
+	line-height: 60px;
+    margin: 0 11px;
+    font-size: 2.5em;
+    color: #fff;
+}
+
+.ctg-contact-modal,
+.modal-footer {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+
+}
+
 /* LANDING PAGE STUFF */
-
-
-
-
-
-

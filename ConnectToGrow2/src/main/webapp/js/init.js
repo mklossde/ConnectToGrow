@@ -22,5 +22,27 @@
 		});
 	});
 
+	$( ".ctg-save-story" ).click(function() {
+		$(this).closest( "article" ).find(" .ctg-article-like ").show();
+	});
+
+	$( ".ctg-button-match-like" ).click(function() {
+		$(this).closest( ".card-content" ).find(" .ctg-match-like ").show();
+	});
+
+	/*
+	$( ".ctg-use-case-show-full-article" ).click(function() {
+		$(this).closest( "article" ).find(" .ctg-article-content ").slideToggle();
+		$(this).find("i").html("expand_less");
+		$(this).html("<i class='large material-icons right'>expand_less</i>schliessen");
+	});
+	*/
+
+	// init modal
+	$(document).ready(function(){
+		// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+		$('.modal').modal();
+	});
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
